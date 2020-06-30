@@ -2,13 +2,13 @@
   .Left-header
     .Left-header__items
       .Left-header__user-name
-        masa
+        = current_user.name
       %ul.Left-header__icon-list
         %li.Left-header__icon
           = link_to "#", class: "Left-header__btn" do
             = icon('fas', 'edit')
         %li.Left-header__icon
-          = link_to "#", class: "Left-header__btn" do
+          = link_to edit_user_path(current_user), class: "Left-header__btn" do
             = icon('fas', 'cog')
   .Group-list
     .Group-list__items
