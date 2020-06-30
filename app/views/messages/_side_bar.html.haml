@@ -11,19 +11,11 @@
           = link_to edit_user_path(current_user), class: "Left-header__btn" do
             = icon('fas', 'cog')
   .Group-list
-    .Group-list__items
-      .Group-list__name
-        techcamp
-      .Group-list__comment
-        まだメッセージはありません
-    .Group-list__items
-      .Group-list__name
-        あいうえお
-      .Group-list__comment
-        まだメッセージはありません
-    .Group-list__items
-      .Group-list__name
-        さしすせそ
-      .Group-list__comment
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      .Group-list__items
+        = link_to '#' do
+          .Group-list__name
+            = group.name
+          .Group-list__comment
+            メッセージはまだありません
 
