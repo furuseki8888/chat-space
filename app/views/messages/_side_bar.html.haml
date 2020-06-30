@@ -5,25 +5,17 @@
         = current_user.name
       %ul.Left-header__icon-list
         %li.Left-header__icon
-          = link_to "#", class: "Left-header__btn" do
+          = link_to new_group_path, class: "Left-header__btn" do
             = icon('fas', 'edit')
         %li.Left-header__icon
           = link_to edit_user_path(current_user), class: "Left-header__btn" do
             = icon('fas', 'cog')
   .Group-list
-    .Group-list__items
-      .Group-list__name
-        techcamp
-      .Group-list__comment
-        まだメッセージはありません
-    .Group-list__items
-      .Group-list__name
-        あいうえお
-      .Group-list__comment
-        まだメッセージはありません
-    .Group-list__items
-      .Group-list__name
-        さしすせそ
-      .Group-list__comment
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      .Group-list__items
+        = link_to '#' do
+          .Group-list__name
+            = group.name
+          .Group-list__comment
+            メッセージはまだありません
 
