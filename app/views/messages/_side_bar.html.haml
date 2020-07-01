@@ -13,7 +13,7 @@
   .Group-list
     - current_user.groups.each do |group|
       .Group-list__items
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .Group-list__name
             = group.name
           .Group-list__comment

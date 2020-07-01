@@ -10,30 +10,7 @@
     = link_to "#", class: "Right-header__btn" do
       Edit
   .message-holder
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        おはよう！
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        こんにちは！
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        こんばんは！
+    = render @messages
   .footer
     = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .Input-box
