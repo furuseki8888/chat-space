@@ -2,13 +2,13 @@
   .Right-header
     .Right-header__group
       .Right-header__name
-        test
+        = @group.name
       %ul.Right-header__member-list
         Member：
-        %li.Right-header__member
-          masa
-    = link_to "#", class: "Right-header__btn" do
-      Edit
+        - @group.users.each do |user|
+          %li.Right-header__member
+            = user.name
+    = link_to "Edit", edit_group_path(@group), class: "Right-header__btn"
   .message-holder
     = render @messages
   .footer
