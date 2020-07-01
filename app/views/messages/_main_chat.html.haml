@@ -2,43 +2,20 @@
   .Right-header
     .Right-header__group
       .Right-header__name
-        test
+        = @group.name
       %ul.Right-header__member-list
         Member：
-        %li.Right-header__member
-          masa
-    = link_to "#", class: "Right-header__btn" do
-      Edit
+        - @group.users.each do |user|
+          %li.Right-header__member
+            = user.name
+    = link_to "Edit", edit_group_path(@group), class: "Right-header__btn"
   .message-holder
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        おはよう！
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        こんにちは！
-    .message-items
-      .Message-info
-        .Message-info__user-name
-          masa
-        .Message-info__date-time
-          2019/11/20(Wed) 17:43:01
-      .message-comment
-        こんばんは！
+    = render @messages
   .footer
-    = form_with class: "new-message" do |f|
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .Input-box
-        = f.text_field :body, placeholder: "type a message", class: "Input-box__text"
-        %label.Input-box__image
+        = f.text_field :content, placeholder: "type a message", class: "Input-box__text"
+        = f.label :image, class: "Input-box__image" do
           = icon('far', 'image')
           = f.file_field :image, class: "Input-box__image-file"
       = f.submit "Send", class: "submit-btn"

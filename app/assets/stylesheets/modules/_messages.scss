@@ -46,6 +46,7 @@ $btn-color: #38aef0;
       &__btn {
         color: #fff;
         text-decoration: none;
+        font-size: 16px;
       }
     }
     .Group-list {
@@ -54,6 +55,10 @@ $btn-color: #38aef0;
       background-color: #2f3e51;
       &__items {
         padding: 20px 0 40px 0;
+      }
+      &__link {
+        color: #fff;
+        text-decoration: none;
       }
       &__name {
         font-size: 15px;
@@ -80,6 +85,9 @@ $btn-color: #38aef0;
       &__member-list {
         @include small-font;
         display: flex;
+      }
+      &__member {
+        padding-right: 5px;
       }
       &__btn {
         width: 72px;
