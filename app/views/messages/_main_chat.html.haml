@@ -35,10 +35,10 @@
       .message-comment
         こんばんは！
   .footer
-    = form_with class: "new-message" do |f|
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .Input-box
-        = f.text_field :body, placeholder: "type a message", class: "Input-box__text"
-        %label.Input-box__image
+        = f.text_field :content, placeholder: "type a message", class: "Input-box__text"
+        = f.label :image, class: "Input-box__image" do
           = icon('far', 'image')
           = f.file_field :image, class: "Input-box__image-file"
       = f.submit "Send", class: "submit-btn"
